@@ -1,727 +1,191 @@
 <!DOCTYPE html>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="generator" content="Observable Framework v1.11.0">
-<title>CRI Index for England Tool</title>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&amp;display=swap" crossorigin>
-<link rel="preload" as="style" href="./_observablehq/theme-air,near-midnight,alt,wide.f6ca92af.css">
-<link rel="preload" as="style" href="./_observablehq/stdlib/inputs.ea9fd553.css">
-<link rel="preload" as="style" href="./_npm/leaflet@1.9.4/dist/leaflet.css">
-<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&amp;display=swap" crossorigin>
-<link rel="stylesheet" type="text/css" href="./_observablehq/theme-air,near-midnight,alt,wide.f6ca92af.css">
-<link rel="stylesheet" type="text/css" href="./_observablehq/stdlib/inputs.ea9fd553.css">
-<link rel="stylesheet" type="text/css" href="./_npm/leaflet@1.9.4/dist/leaflet.css">
-<link rel="modulepreload" href="./_observablehq/client.085f727e.js">
-<link rel="modulepreload" href="./_observablehq/runtime.a4b34474.js">
-<link rel="modulepreload" href="./_observablehq/stdlib.43ec6990.js">
-<link rel="modulepreload" href="./_import/components/url_params.fb45fdf3.js">
-<link rel="modulepreload" href="./_import/components/cri_button.27dc32d4.js">
-<link rel="modulepreload" href="./_import/components/radarplot.ca3acdfb.js">
-<link rel="modulepreload" href="./_import/components/heatDot.930742c3.js">
-<link rel="modulepreload" href="./_import/components/map.27c563bf.js">
-<link rel="modulepreload" href="./_import/data/cri_lad_data.0bffec86.js">
-<link rel="modulepreload" href="./_npm/htl@0.3.1/063eb405.js">
-<link rel="modulepreload" href="./_npm/@observablehq/plot@0.6.16/e828d8c8.js">
-<link rel="modulepreload" href="./_npm/d3@7.9.0/7055d4c5.js">
-<link rel="modulepreload" href="./_npm/leaflet@1.9.4/d8a0af43.js">
-<link rel="modulepreload" href="./_npm/d3-dsv@3.0.1/407f7a1f.js">
-<link rel="modulepreload" href="./_observablehq/stdlib/inputs.22d05fdc.js">
-<link rel="modulepreload" href="./_npm/isoformat@0.2.1/c68fbd73.js">
-<link rel="modulepreload" href="./_npm/interval-tree-1d@1.0.4/a62ae5ce.js">
-<link rel="modulepreload" href="./_npm/d3-array@3.2.4/e95f898e.js">
-<link rel="modulepreload" href="./_npm/d3-axis@3.0.0/d44feff9.js">
-<link rel="modulepreload" href="./_npm/d3-brush@3.0.0/5830b12a.js">
-<link rel="modulepreload" href="./_npm/d3-chord@3.0.1/84d7b8e9.js">
-<link rel="modulepreload" href="./_npm/d3-color@3.1.0/2c0cdfa2.js">
-<link rel="modulepreload" href="./_npm/d3-contour@4.0.2/626bedc4.js">
-<link rel="modulepreload" href="./_npm/d3-delaunay@6.0.4/00c41b5d.js">
-<link rel="modulepreload" href="./_npm/d3-dispatch@3.0.1/b5f7cdc6.js">
-<link rel="modulepreload" href="./_npm/d3-drag@3.0.0/b22c5864.js">
-<link rel="modulepreload" href="./_npm/d3-ease@3.0.1/6f15f633.js">
-<link rel="modulepreload" href="./_npm/d3-fetch@3.0.1/ef1ec490.js">
-<link rel="modulepreload" href="./_npm/d3-force@3.0.0/5e1ff060.js">
-<link rel="modulepreload" href="./_npm/d3-format@3.1.0/5851d7ef.js">
-<link rel="modulepreload" href="./_npm/d3-geo@3.1.1/dcd02767.js">
-<link rel="modulepreload" href="./_npm/d3-hierarchy@3.1.2/f1db2593.js">
-<link rel="modulepreload" href="./_npm/d3-interpolate@3.0.1/034b7bcb.js">
-<link rel="modulepreload" href="./_npm/d3-path@3.1.0/4bb53638.js">
-<link rel="modulepreload" href="./_npm/d3-polygon@3.0.1/bbafde58.js">
-<link rel="modulepreload" href="./_npm/d3-quadtree@3.0.1/aa5b35a8.js">
-<link rel="modulepreload" href="./_npm/d3-random@3.0.1/32c7fec2.js">
-<link rel="modulepreload" href="./_npm/d3-scale@4.0.2/567840a0.js">
-<link rel="modulepreload" href="./_npm/d3-scale-chromatic@3.1.0/cf9b720b.js">
-<link rel="modulepreload" href="./_npm/d3-selection@3.0.0/5dcd62f4.js">
-<link rel="modulepreload" href="./_npm/d3-shape@3.2.0/f8e03c56.js">
-<link rel="modulepreload" href="./_npm/d3-time@3.1.0/5bc129e1.js">
-<link rel="modulepreload" href="./_npm/d3-time-format@4.1.0/19c92b44.js">
-<link rel="modulepreload" href="./_npm/d3-timer@3.0.1/f31b5398.js">
-<link rel="modulepreload" href="./_npm/d3-transition@3.0.1/8debb4ba.js">
-<link rel="modulepreload" href="./_npm/d3-zoom@3.0.0/4b0cc581.js">
-<link rel="modulepreload" href="./_npm/binary-search-bounds@2.0.5/1ee6c50d.js">
-<link rel="modulepreload" href="./_npm/internmap@2.0.3/5eed35fd.js">
-<link rel="modulepreload" href="./_npm/delaunator@5.0.1/e67acb27.js">
-<link rel="modulepreload" href="./_npm/robust-predicates@3.0.2/8ac9039b.js">
-<link rel="icon" href="./_file/img/observable.1af93621.png" type="image/png" sizes="32x32">
-<script type="module">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community Resilience Index for England</title>
 
-import {define} from "./_observablehq/client.085f727e.js";
-import {registerFile} from "./_observablehq/stdlib.43ec6990.js";
+    <!-- Bootstrap CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-registerFile("./data/geogranks_powerBI_v2.csv", {"name":"./data/geogranks_powerBI_v2.csv","mimeType":"text/csv","path":"./_file/data/geogranks_powerBI_v2.dc882123.csv","lastModified":1726605635004,"size":419488});
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+        }
 
-define({id: "4145b83b", outputs: ["urlParams","changeParams","criButton","radarPlot","heatDot","map","cri_lad_data"], body: async () => {
-const [{urlParams, changeParams}, {criButton}, {radarPlot}, {heatDot}, {map}, {cri_lad_data}] = await Promise.all([import("./_import/components/url_params.fb45fdf3.js"), import("./_import/components/cri_button.27dc32d4.js"), import("./_import/components/radarplot.ca3acdfb.js"), import("./_import/components/heatDot.930742c3.js"), import("./_import/components/map.27c563bf.js"), import("./_import/data/cri_lad_data.0bffec86.js")]);
+        .navbar-custom {
+            position: fixed; /* Make it fixed */
+            top: 0; /* Position it at the top */
+            left: 0;
+            right: 0;
+            z-index: 1000; /* Ensure it stays above other content */
+            background-color: #f8f8f8;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
 
-return {urlParams,changeParams,criButton,radarPlot,heatDot,map,cri_lad_data};
-}});
+        .subtitle-bar {
+            position: fixed; /* Make it fixed */
+            top: 55px; /* Position it below the title bar */
+            left: 0;
+            right: 0;
+            background-color: #173C72;
+            color: white;
+            font-size: 18px;
+            padding: 20px 20px 10px 20px;
+            z-index: 999; /* Ensure it stays below the title bar */
+            text-align: center; /* Center the text */
+        }
 
-define({id: "53037434", outputs: ["viewportMeta"], body: () => {
-// Change html meta tag to allow zoom in mobile!
-let viewportMeta = document.querySelector('meta[name="viewport"]');
-        
-// Change the content attribute to allow zooming
-if (viewportMeta) {
-    viewportMeta.setAttribute('content', 'width=device-width, initial-scale=1');
-} else {
-    // If the meta tag does not exist, create it
-    viewportMeta = document.createElement('meta');
-    viewportMeta.name = "viewport";
-    viewportMeta.content = "width=device-width, initial-scale=1";
-    document.head.appendChild(viewportMeta);
-}
-return {viewportMeta};
-}});
+        /* Responsive logo size */
+        .navbar-brand img {
+            height: 40px;
+        }
 
-define({id: "5a382e6d", body: () => {
-window.onload = function() {
-  setTimeout(function() {
-    const menuBar = document.querySelector('.menu-bar');
-    
-    if (menuBar) {
-      document.body.appendChild(menuBar);
-      console.log('Menu bar moved after window.onload and timeout.');
-    }
-  }, 1500);  // Adjust the delay if needed
-};
-}});
+        @media (max-width: 576px) {
+            .navbar-brand img {
+                height: 30px; /* Smaller logo for mobile */
+            }
+        }
 
-define({id: "add3f49c", inputs: ["FileAttachment"], outputs: ["cr_data"], body: (FileAttachment) => {
-const cr_data = FileAttachment("./data/geogranks_powerBI_v2.csv").csv({typed: true});
-return {cr_data};
-}});
+        /* Main Content Styles */
+        .main-content {
+            padding-top: 100px; /* Add padding to the top to prevent content from being hidden behind the title and subtitle bars */
+        }
 
-define({id: "6f9402fb", body: () => {
-// for debug purposes
-// Inputs.table(cr_data)
-}});
+        /* Center card with vertical padding for extra space */
+        .card-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; /* Ensures container takes full viewport height */
+            padding: 20px; /* Adds padding to avoid cutting off the top */
+        }
 
-define({id: "108a5775", inputs: ["cr_data"], outputs: ["uniqueLanValues","selectedLa"], body: (cr_data) => {
-var uniqueLanValues = Array.from(new Set(cr_data.map(row => row.lan))).sort();
-var selectedLa = 'Croydon'
-return {uniqueLanValues,selectedLa};
-}});
+        .card {
+            width: 100%;
+            max-width: 800px; /* Limit the card width */
+            padding: 20px;
+        }
 
-define({id: "e577a4ea", inputs: ["la_data","html"], outputs: ["regionInfo"], body: (la_data,html) => {
-function regionInfo(){
-  // Has access to global la_data
-  if (la_data.cauth24nm === "" || la_data.cauth24nm === null) {
-    var ca_header = html``;
-    var ca_name = html``;
-  } else {
-    var ca_header = html`<td><b>Combined Authority<b></td>`;
-    var ca_name = la_data.cauth24nm;
-  }
-  
-  return html`<table>
-                <tr>
-                  <td><b>Region</b></td>
-                  <td>${la_data.rgn22nm}</td>
-                </tr>
-                <tr>
-                  <td><b>Local Resilience Forum</b></td>
-                  <td>${la_data.lrf23nm}</td>
-                </tr>
-                <tr>
-                  <td><b>Fire and Rescue Service<b></td>
-                  <td>${la_data.fra23nm}</td>
-                </tr>
-                  <td><b>Police<b></td>
-                  <td>${la_data.pfa23nm}</td>
-                <tr>
-                  ${ca_header}
-                  <td>${ca_name}</td>
-                </tr>
-              </table>`;
-}
-return {regionInfo};
-}});
+        .card-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
 
-define({id: "72efa000", inputs: ["cr_data"], outputs: ["highestCri","lowestCri"], body: (cr_data) => {
-// find the max and min values of CRI index in the data
-const highestCri = cr_data.reduce((max, obj) => 
-  (obj.index > max ? obj.index : max), -Infinity);
+        .card-text {
+            font-size: 16px;
+            line-height: 1.6;
+        }
 
-const lowestCri = cr_data.reduce((min, obj) => 
-  (obj.index < min ? obj.index : min), Infinity);
-return {highestCri,lowestCri};
-}});
+        /* Custom styling for citation block */
+        .citation-block {
+            background-color: #f9f9f9;
+            border-left: 5px solid #173C72;
+            padding: 20px;
+            margin: 20px 0;
+            font-style: italic;
+        }
 
-define({id: "8edf1520", inputs: ["view","Inputs","uniqueLanValues","selectedLa"], outputs: ["name"], body: (view,Inputs,uniqueLanValues,selectedLa) => {
-const name = view(Inputs.select(uniqueLanValues, {value: selectedLa, label: "Select Local Authority"}))
-return {name};
-}});
+        .citation-text {
+            margin: 0;
+            font-size: 16px;
+            line-height: 1.6;
+        }
 
-define({id: "04ed234e", inputs: ["cr_data","name"], outputs: ["la_data"], body: (cr_data,name) => {
-// when 'name' changes (a different local authority is selected) do the following:
-var la_data = cr_data.find(data => data.lan === name); // select data record for this local authority
-return {la_data};
-}});
-
-define({id: "82a3537f", mode: "inline", inputs: ["name","display"], body: async (name,display) => {
-display(await(
-name
-))
-}});
-
-define({id: "36c0e7e0", mode: "inline", inputs: ["regionInfo","display"], body: async (regionInfo,display) => {
-display(await(
-regionInfo()
-))
-}});
-
-define({id: "93b3fc3f", inputs: ["display","map","cri_lad_data","la_lat","la_lng"], outputs: ["div","layers"], body: (display,map,cri_lad_data,la_lat,la_lng) => {
-const div = display(document.createElement("div"));
-div.style = "width: {width}; height: 400px;";
-
-var layers = map({
-    cri_lad_data: cri_lad_data,
-    div: div,
-    lat: la_lat,
-    lng: la_lng, 
-    zoom: 9
-    });
-return {div,layers};
-}});
-
-define({id: "eef92775", inputs: ["cri_lad_data","la_data"], outputs: ["la_pos","la_lat","la_lng"], body: (cri_lad_data,la_data) => {
-var la_pos = cri_lad_data.features.find(feature => feature.properties.LAD22CD === la_data.lac)
-var la_lat = la_pos.properties.LAT
-var la_lng = la_pos.properties.LONG
-return {la_pos,la_lat,la_lng};
-}});
-
-define({id: "7892c92a", inputs: ["layers"], outputs: ["highlightLA"], body: (layers) => {
-function highlightLA(id){
-    layers[id].setStyle({
-		weight: 5,
-		color: 'green',
-		dashArray: '',
-		fillOpacity: 0.9
-	});
-}
-return {highlightLA};
-}});
-
-define({id: "8a3a5710", inputs: ["highlightLA","la_data"], body: (highlightLA,la_data) => {
-highlightLA(la_data.lac);
-}});
-
-define({id: "82a3537f-1", mode: "inline", inputs: ["name","display"], body: async (name,display) => {
-display(await(
-name
-))
-}});
-
-define({id: "1275e0ed", mode: "inline", inputs: ["heatDot","la_data","lowestCri","highestCri","display"], body: async (heatDot,la_data,lowestCri,highestCri,display) => {
-display(await(
-heatDot(Math.floor(la_data.index * 10)/10, lowestCri, highestCri)
-))
-}});
-
-define({id: "723fa789", mode: "inline", inputs: ["la_data","display"], body: async (la_data,display) => {
-display(await(
-Math.floor(la_data.index * 10)/10
-))
-}});
-
-define({id: "e823e0bb", mode: "inline", inputs: ["heatDot","la_data","display"], body: async (heatDot,la_data,display) => {
-display(await(
-heatDot(la_data.quintile, 1, 5)
-))
-}});
-
-define({id: "e76b4a78", mode: "inline", inputs: ["la_data","display"], body: async (la_data,display) => {
-display(await(
-la_data.quintile
-))
-}});
-
-define({id: "9fca9777", mode: "inline", inputs: ["heatDot","la_data","display"], body: async (heatDot,la_data,display) => {
-display(await(
-heatDot(la_data.index_nr, 1, 307, false)
-))
-}});
-
-define({id: "b0c6d8c8", mode: "inline", inputs: ["la_data","display"], body: async (la_data,display) => {
-display(await(
-la_data.index_nr
-))
-}});
-
-define({id: "47fb5381", mode: "inline", inputs: ["heatDot","la_data","display"], body: async (heatDot,la_data,display) => {
-display(await(
-heatDot(la_data.subindex1_nr, 1, 307, false)
-))
-}});
-
-define({id: "c323f7d3", mode: "inline", inputs: ["la_data","display"], body: async (la_data,display) => {
-display(await(
-la_data.subindex1_nr
-))
-}});
-
-define({id: "71af8123", mode: "inline", inputs: ["heatDot","la_data","display"], body: async (heatDot,la_data,display) => {
-display(await(
-heatDot(la_data.subindex2_nr, 1, 307, false)
-))
-}});
-
-define({id: "85e894b3", mode: "inline", inputs: ["la_data","display"], body: async (la_data,display) => {
-display(await(
-la_data.subindex2_nr
-))
-}});
-
-define({id: "5b915694", mode: "inline", inputs: ["heatDot","la_data","display"], body: async (heatDot,la_data,display) => {
-display(await(
-heatDot(la_data.subindex3_nr, 1, 307, false)
-))
-}});
-
-define({id: "7fcf3986", mode: "inline", inputs: ["la_data","display"], body: async (la_data,display) => {
-display(await(
-la_data.subindex3_nr
-))
-}});
-
-define({id: "821859da", mode: "inline", inputs: ["heatDot","la_data","display"], body: async (heatDot,la_data,display) => {
-display(await(
-heatDot(la_data.subindex4_nr, 1, 307, false)
-))
-}});
-
-define({id: "aa1bf0d9", mode: "inline", inputs: ["la_data","display"], body: async (la_data,display) => {
-display(await(
-la_data.subindex4_nr
-))
-}});
-
-define({id: "8455a1a8", mode: "inline", inputs: ["heatDot","la_data","display"], body: async (heatDot,la_data,display) => {
-display(await(
-heatDot(la_data.subindex5_nr, 1, 307, false)
-))
-}});
-
-define({id: "5b4f66a0", mode: "inline", inputs: ["la_data","display"], body: async (la_data,display) => {
-display(await(
-la_data.subindex5_nr
-))
-}});
-
-define({id: "6cad7b5d", inputs: ["la_data"], outputs: ["points"], body: (la_data) => {
-const points = [
-{key: 'CRI national rank', value: la_data.index_nr},
-{key: 'Subindex 1 - Access and Infrastructure', value: la_data.subindex1_nr},
-{key: 'Subindex 2 - Economic Well-being and Opportunity', value: la_data.subindex2_nr},
-{key: 'Subindex 3 - Social Capital and Connectivity', value: la_data.subindex3_nr},
-{key: 'Subindex 4 - Diversity and Inclusion', value: la_data.subindex4_nr},
-{key: 'Subindex 5 - Equity and Stability', value: la_data.subindex5_nr},
-];
-return {points};
-}});
-
-define({id: "d1122be9", mode: "inline", inputs: ["view","radarPlot","points"], body: (view,radarPlot,points) => {
-view(radarPlot(points))
-}});
-
-define({id: "81b34441", mode: "inline", inputs: ["geographyType","display"], body: async (geographyType,display) => {
-display(await(
-geographyType
-))
-}});
-
-define({id: "7396d197", mode: "inline", inputs: ["geogTypeDesc","display"], body: async (geogTypeDesc,display) => {
-display(await(
-geogTypeDesc
-))
-}});
-
-define({id: "4fe3cb29", inputs: ["view","Inputs","same_combined_authority"], outputs: ["geographyType"], body: (view,Inputs,same_combined_authority) => {
-const geographyType = view(Inputs.select(['Region', 'Combined Authority', 'Local Resilience Forum', 'Fire and Rescue Service', 'Police'],
-  {value: 'Region', label: "Geography type", disabled: same_combined_authority.length === 0 ? ['Combined Authority'] : []}))
-return {geographyType};
-}});
-
-define({id: "4ad63e41", inputs: ["cr_data","la_data"], outputs: ["regional_peers","same_combined_authority","same_lrf","same_fire","same_police"], body: (cr_data,la_data) => {
-var regional_peers = cr_data.filter(data => data.rgn22nm === la_data.rgn22nm)
-
-var same_combined_authority = []
-if (la_data.cauth24nm != null) {
-  same_combined_authority = cr_data.filter(data => data.cauth24nm === la_data.cauth24nm)
+        .button_link {
+    background-color: #6b2c91; /* Button background color */
+    color: #fff; /* Button text color */
+    border: none; /* No border */
+    padding: 6px 15px; /* Padding for the button */
+    font-weight: 400; /* Font weight */
+    border-radius: 4px; /* Rounded corners */
+    text-decoration: none; /* Remove underline from links */
+    display: inline-block; /* Make it behave like a button */
+    transition: background-color 0.3s; /* Smooth transition for background color */
 }
 
-var same_lrf = []
-if (la_data.lrf23nm != null) {
-  same_lrf = cr_data.filter(data => data.lrf23nm === la_data.lrf23nm)
+.button_link:hover,
+.button_link:focus {
+    background-color: #79379d; /* Background color on hover/focus */
 }
 
-var same_fire = []
-if (la_data.fra23nm != null) {
-  same_fire = cr_data.filter(data => data.fra23nm === la_data.fra23nm)
+.button_link:active {
+    background-color: #55147a; /* Background color on click */
 }
+    </style>
+</head>
+<body>
 
-var same_police = []
-if (la_data.pfa23nm != null) {
-  same_police = cr_data.filter(data => data.pfa23nm === la_data.pfa23nm)
-}
-return {regional_peers,same_combined_authority,same_lrf,same_fire,same_police};
-}});
+    <!-- Title Bar with two logos and responsive title -->
+    <nav class="navbar navbar-expand-lg navbar-custom">
+        <div class="container-fluid d-flex justify-content-between align-items-center">
+            <!-- Left logo -->
+            <a class="navbar-brand" href="#">
+                <img src="./images/NIHR.png" alt="Left Logo" height="40">
+            </a>
 
-define({id: "a2cd2063", inputs: ["geographyType","regional_peers","la_data","same_combined_authority","same_lrf","same_fire","same_police"], outputs: ["geogTypeDesc","peer_dataset"], body: (geographyType,regional_peers,la_data,same_combined_authority,same_lrf,same_fire,same_police) => {
-var geogTypeDesc
-var peer_dataset = []
-if (geographyType === 'Region') {
-  peer_dataset = regional_peers
-  geogTypeDesc = la_data.rgn22nm
-} else if (geographyType === 'Combined Authority') {
-  peer_dataset = same_combined_authority
-  geogTypeDesc = la_data.cauth24nm
-} else if (geographyType === 'Local Resilience Forum') {
-  peer_dataset = same_lrf
-  geogTypeDesc = la_data.lrf23nm
-} else if (geographyType === 'Fire and Rescue Service') {
-  peer_dataset = same_fire
-  geogTypeDesc = la_data.fra23nm
-} else if (geographyType === 'Police') {
-  peer_dataset = same_police
-  geogTypeDesc = la_data.pfa23nm
-}
-return {geogTypeDesc,peer_dataset};
-}});
+            <!-- Empty space in the center -->
+            <div class="mx-auto"></div>
 
-define({id: "7e5d0b01", inputs: ["peer_dataset"], outputs: ["peers"], body: (peer_dataset) => {
-//Select fields and sort by CRI score
-var peers = peer_dataset.map(({ lan, index, quintile, index_nr, index_rr }) => ({ lan, index, quintile, index_nr, index_rr})).sort((a, b) => a.index - b.index)
-return {peers};
-}});
+            <!-- Right logo -->
+            <a class="navbar-brand" href="#">
+                <img src="./images/UoM.png" alt="Right Logo" height="40">
+            </a>
+        </div>
+    </nav>
 
-define({id: "09f4354b", outputs: ["truncateString"], body: () => {
-function truncateString(str) {
-  // Check if the string is longer than 10 characters
-  if (str.length > 10) {
-    return str.substring(0, 10) + '...';
-  }
-  return str;  // Return the string if it's 10 characters or less
-}
-return {truncateString};
-}});
-
-define({id: "c8e34d8b", inputs: ["Plot","peers","la_data","truncateString"], outputs: ["graph"], body: (Plot,peers,la_data,truncateString) => {
-var graph = Plot.plot({
-  width: 1100,
-  marginLeft: 90,
-  marginBottom: 150,
-  style: {fontSize: "18px"},
-  marks:[
-    Plot.barY(peers, {
-      x: "lan",
-      y: "index",
-      sort: {x: "y"},
-      stroke: "#660099",
-      fill: d => d.lan === la_data.lan ? "#FFCC33" : "#660099",
-    })
-  ],
-  x: {label: 'Local Authority', tickFormat: (d) => truncateString(d), tickRotate: -45, padding: 0.3,},
-  y: {label: 'CRI Score'}
-})
-return {graph};
-}});
-
-define({id: "eef93e1d", mode: "inline", inputs: ["graph","display"], body: async (graph,display) => {
-display(await(
-graph
-))
-}});
-
-define({id: "89d6f39e", inputs: ["Inputs","peers","html","heatDot","lowestCri","highestCri","display"], body: async (Inputs,peers,html,heatDot,lowestCri,highestCri,display) => {
-display(await(
- Inputs.table(
-  peers, {
-  format: {
-    index: (x) => html`${heatDot(Math.floor(x * 10)/10, lowestCri, highestCri)} ${(Math.floor(x * 10)/10).toFixed(1)}`,
-  },
-  header:
-    {lan: 'Local authority',
-    index: 'CRI score',
-    quintile: 'CRI Quintile',
-    index_nr: 'National rank',
-    index_rr: 'Comparator group rank'
-    },
-  select: false,
-  }
-)
-))
-}});
-
-</script>
-<div id="observablehq-center">
-<main id="observablehq-main" class="observablehq">
-<div class="observablehq observablehq--block"><!--:4145b83b:--></div>
-<div class="observablehq observablehq--block"><!--:53037434:--></div>
-<style>
-  body, html {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    height: 100%;
-}
-
-  .menu-bar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: #333;
-    z-index: 1000;
-  }
-
-  .menu-bar ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #333;
-  }
-
-  .menu-bar ul li {
-    float: left;
-  }
-
-  .menu-bar ul li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-  }
-
-  .menu-bar ul li a:hover {
-    background-color: #111;
-  }
-
-  .top-menu {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 20px;
-  background-color: #f8f8f8;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-/* Styling for the title */
-.title {
-  text-align: center;
-  flex-grow: 1;
-  font-family: Arial, sans-serif;
-  font-size: 24px;
-  margin: -100;
-}
-
-/* Styling for the logos */
-.logo {
-  max-height: 50px;
-  margin-left: 20px;
-  margin-right: 20px;
-}
-
-.left-logo {
-  margin-left: 40px; /* Extra margin on the left */
-}
-
-.right-logo {
-  margin-right: 40px; /* Extra margin on the right */
-}
-
-  .content {
-    padding-top: 50px; /* To prevent content from being hidden behind the fixed menu */
-  }
-</style>
-<div class="menu-bar">
-    <div class="top-menu">
-      <img src="./_file/img/NIHR.905fbc26.png" alt="NIHR" class="logo left-logo">
-      <h1 class="title">CRI Tool</h1>
-      <img src="./_file/img/UoM.45ff6270.png" alt="University of Manchester" class="logo right-logo">
+    <!-- Subtitle Bar -->
+    <div class="subtitle-bar">
+        Community Resilience Index for England
     </div>
-</div>
-<div class="observablehq observablehq--block"><!--:5a382e6d:--></div>
-<div class="observablehq observablehq--block"><!--:add3f49c:--></div>
-<div class="observablehq observablehq--block"><!--:6f9402fb:--></div>
-<div class="observablehq observablehq--block"><!--:108a5775:--></div>
-<div class="observablehq observablehq--block"><!--:e577a4ea:--></div>
-<div class="observablehq observablehq--block"><!--:72efa000:--></div>
-<style>
-  .centered-text {
-    width: 80%;
-    margin: 0 auto;
-  }
 
-  /* On small screens (max-width: 600px), remove the centering */
-  @media screen and (max-width: 600px) {
-    .centered-text {
-      width: 100%;
-      margin: 0;
-      text-align: left;
-    }
-  }
-</style>
-<div class="grid grid-cols-3 content" style="grid-auto-rows: auto;">
-  <div class="card grid-rowspan-2">
-    <br>
-    <div class="centered-text">
-      <div style="display: flex; justify-content: space-between; align-items: center;">
-          <img src="./_file/img/NIHR.905fbc26.png" style="width: 200px; vertical-align: middle;">
-          <img src="./_file/img/UoM.45ff6270.png" style="width: 100px; vertical-align: middle;">
-      </div>
+    <!-- Card Container -->
+    <div class="main-content"></div>
+    <div class="card-container">
+        <div class="card shadow">
+            <div class="card-body">
+                <h5 class="card-title">Community Resilience Index for England</h5>
+
+                <h6 class="card-subtitle mb-1">Background</h6>
+                <p class="card-text">
+                    Improving community resilience is a key aim of national and local policymakers, reflected in documents like the UK Government Resilience Framework. Measuring community resilience is complex, but essential to identifying which places have lower resilience, and may benefit from tailored interventions. Researchers from The University of Manchester have developed a new composite measure – a Community Resilience Index (CRI) – and applied it to England. The CRI can be used to guide resilience-building efforts by policymakers, at national, regional, and local levels.
+                </p>
+
+                <h6 class="card-subtitle mb-2">Measuring Community Resilience</h6>
+                <p class="card-text">
+                    To create the CRI, 44 indicators were grouped into five sub-indices, each representing a different aspect of community resilience. The full methodology for how the index was developed can be found here.
+                </p>
+                <div style="width: 100%; max-width: 640px;">
+                  <a href='https://www.mdpi.com/1660-4601/21/8/1012' target="_blank"><img src="./images/Paper.png" style="width: 100%; height: auto; display: block; max-width: 640px"></a>
+                </div>
+                <br>
+                <h6 class="card-subtitle mb-2">How to use this tool</h6>
+                <p class="card-text">
+                    This tool provides access to CRI scores, sub-index scores, and indicators from the research study above. It allows the data to be explored at either the local authority level or by geographical groupings, such as regions, local resilience forums, or combined authorities.
+                </p>
+                <p class="card-text">
+                    The datasets used to generate the Community Resilience Index (CRI) for England are available in a <a href="https://github.com/Christine-L-Camacho/CRI_England" target="_blank">GitHub repository</a>. This excludes the data for two indicators, which were used under licence/special agreement for the current study and so are not publicly available. The data for the retail vacancies indicator may be accessed under licence from the <a href="https://www.cdrc.ac.uk/" target="_blank">Consumer Data Research Centre</a>, and the data on assets of community value can be obtained from <a href="https://plunkett.co.uk/" target="_blank">Plunkett UK</a>. All data generated from this study, namely the CRI and its sub-indices at local authority district level, are included in this published article and its Supplementary Information Files.
+                </p>
+                <h6 class="card-subtitle mb-2">Citation</h6>
+                <p class="card-text">
+                    If you use this data in your research or any other project, please use the following citation:
+                </p>
+                <div class="citation-block">
+                  <p class="citation-text">
+                    Camacho, C.; Webb, R.T.; Bower, P.; Munford, L. Adapting the Baseline Resilience Indicators for Communities (BRIC) Framework for England: Development of a Community Resilience Index. Int. J. Environ. Res. Public Health 2024, 21, 1012. <a href="https://doi.org/10.3390/ijerph21081012" target="_blank" >https://doi.org/10.3390/ijerph21081012</a>
+                  </p>
+                </div>
+                <br>
+                <p><a href="./la.html" class="button_link">Local Authority</a></p>
       <br>
-      <h1>Community Resilience Index for England</h1>
-      <br>
-      <h2 style="font-weight: bold;">Background</h2>
-      <p>Improving community resilience is a key aim of national and local policymakers, reflected in documents like the UK Government Resilience Framework. Measuring community resilience is complex, but essential to identifying which places have lower resilience, and may benefit from tailored interventions. Researchers from The University of Manchester have developed a new composite measure – a Community Resilience Index (CRI) – and applied it to England. The CRI can be used to guide resilience-building efforts by policymakers, at national, regional, and local levels.</p>
-      <h2 style="font-weight: bold;">Measuring Community Resilience</h2>
-      <p>To create the CRI, 44 indicators were grouped into five sub-indices, each representing a different aspect of community resilience. The full methodology for how the index was developed can be found here.</p>
-      <div style="width: 100%; max-width: 640px;">
-        <a href="https://www.mdpi.com/1660-4601/21/8/1012" target="_blank" rel="noopener noreferrer"><img src="./_file/img/Paper.aae7ae24.png" style="width: 100%; height: auto; display: block; max-width: 640px"></a>
-      </div>
-      <br>
-      <h2 style="font-weight: bold;">How to use this tool</h2>
-      <p>This tool provides access to CRI scores, sub-index scores, and indicators* from the research study above. It allows the data to be explored at either the local authority level or by geographical groupings, such as regions, local resilience forums, or combined authorities.</p>
-      <br>
-      <p>*Data for 42 of 44 indicators are available in this tool due to data sharing restrictions</p>
+            </div>
+        </div>
     </div>
-  </div>
-  <div class="card">
-<h3 style="font-weight: bold;">Local Authority</h3>
-<br>
-<div class="observablehq observablehq--block"><!--:8edf1520:--></div>
-<div class="observablehq observablehq--block"><!--:04ed234e:--></div>
-<h1 style="font-weight: bold;"><observablehq-loading></observablehq-loading><!--:82a3537f:--></h1>
-<p><observablehq-loading></observablehq-loading><!--:36c0e7e0:--></p>
-<br>
-  </div>
-  <div class="card">
-  <style>
-	.info { width: 250px; padding: 6px 8px; font: 14px/16px Arial, Helvetica, sans-serif; background: white; background: rgba(255,255,255,0.8); box-shadow: 0 0 15px rgba(0,0,0,0.2); border-radius: 5px; } .info h4 { margin: 0 0 5px; colo: #777; }
-	.legend { width: 135px; text-align: left; line-height: 18px; color: #555; } .legend i { width: 18px; height: 18px; float: left; margin-right: 8px; opacity: 0.7; }</style>
-<div class="observablehq observablehq--block"><!--:93b3fc3f:--></div>
-<div class="observablehq observablehq--block"><!--:eef92775:--></div>
-<div class="observablehq observablehq--block"><!--:7892c92a:--></div>
-<div class="observablehq observablehq--block"><!--:8a3a5710:--></div>
-<a href="./largemap.html" target="_blank" style="display: inline-flex; align-items: center; text-decoration: none;">
-    View large map
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" style="margin-left: 4px;" xmlns="http://www.w3.org/2000/svg">
-        <path fill-rule="evenodd" clip-rule="evenodd" d="M20 14a1 1 0 0 0-1 1v3.077c0 .459-.022.57-.082.684a.363.363 0 0 1-.157.157c-.113.06-.225.082-.684.082H5.923c-.459 0-.571-.022-.684-.082a.363.363 0 0 1-.157-.157c-.06-.113-.082-.225-.082-.684L4.999 5.5a.5.5 0 0 1 .5-.5l3.5.005a1 1 0 1 0 .002-2L5.501 3a2.5 2.5 0 0 0-2.502 2.5v12.577c0 .76.083 1.185.32 1.627.223.419.558.753.977.977.442.237.866.319 1.627.319h12.154c.76 0 1.185-.082 1.627-.319.419-.224.753-.558.977-.977.237-.442.319-.866.319-1.627V15a1 1 0 0 0-1-1zm-2-9.055v-.291l-.39.09A10 10 0 0 1 15.36 5H14a1 1 0 1 1 0-2l5.5.003a1.5 1.5 0 0 1 1.5 1.5V10a1 1 0 1 1-2 0V8.639c0-.757.086-1.511.256-2.249l.09-.39h-.295a10 10 0 0 1-1.411 1.775l-5.933 5.932a1 1 0 0 1-1.414-1.414l5.944-5.944A10 10 0 0 1 18 4.945z" fill="currentColor"></path>
-    </svg>
-</a>
-  </div>
-  <div class="card" style="position: relative;">
-<h3 style="font-weight: bold;">CRI Scores</h3>
-<br>
-<h1 style="font-weight: bold;"><observablehq-loading></observablehq-loading><!--:82a3537f-1:--></h1>
-  <br>
-  <table>
-    <tbody><tr>
-      <td><b>CRI Score</b></td>
-      <td><observablehq-loading></observablehq-loading><!--:1275e0ed:--> <observablehq-loading></observablehq-loading><!--:723fa789:--></td>
-    </tr>
-    <tr>
-      <td><b>CRI quintile</b></td>
-      <td><observablehq-loading></observablehq-loading><!--:e823e0bb:--> <observablehq-loading></observablehq-loading><!--:e76b4a78:--></td>
-    </tr>
-    <tr>
-      <td><b>CRI National Rank</b></td>
-      <td><observablehq-loading></observablehq-loading><!--:9fca9777:--> <observablehq-loading></observablehq-loading><!--:b0c6d8c8:--> / 307</td>
-    </tr>
-    <tr>
-      <td>1 - Access and Infrastructure</td>
-      <td><observablehq-loading></observablehq-loading><!--:47fb5381:--> <observablehq-loading></observablehq-loading><!--:c323f7d3:--></td>
-    </tr>
-    <tr>
-      <td>2 - Economic Well-being and Opportunity</td>
-      <td><observablehq-loading></observablehq-loading><!--:71af8123:--><observablehq-loading></observablehq-loading><!--:85e894b3:--></td>
-    </tr>
-    <tr>
-      <td>3 - Social Capital and Connectivity</td>
-      <td><observablehq-loading></observablehq-loading><!--:5b915694:--><observablehq-loading></observablehq-loading><!--:7fcf3986:--></td>
-    </tr>
-    <tr>
-      <td>4 - Diversity and Inclusion</td>
-      <td><observablehq-loading></observablehq-loading><!--:821859da:--><observablehq-loading></observablehq-loading><!--:aa1bf0d9:--></td>
-    </tr>
-    <tr>
-      <td>5 - Equity and Stability</td>
-      <td><observablehq-loading></observablehq-loading><!--:8455a1a8:--><observablehq-loading></observablehq-loading><!--:5b4f66a0:--></td>
-    </tr>
-  </tbody></table>
-  <div class="text-box" style="bottom: 35px; right: 30px; width: 400px; height: 60px; justify-content: left; align-items: left; text-align: left;">
-    <ul>
-      <li>CRI score: higher score = more resilient</li>
-      <li>CRI quintiles: 1 = least resilient; 5 = most resilient</li>
-      <li>Ranks: 1 = highest community resilience; 307 = lowest resilience</li>
-    </ul>
-  </div>
-  </div>
-  <div class="card">
-<div class="observablehq observablehq--block"><!--:6cad7b5d:--></div>
-<style>
-  .text-box {
-    position: absolute;
-    background-color: rgba(255, 255, 255, 0.8);
-    padding: 10px;
-    font-size: 12px;
-    border-radius: 5px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    word-wrap: break-word; /* Ensures long words wrap onto new lines */
-    overflow: hidden; /* To avoid overflow outside the box */
-}
-</style>
-<div style="width: 90%; margin: 0 auto; position: relative;">
-<p><observablehq-loading></observablehq-loading><!--:d1122be9:--></p>
-<div class="text-box" style="bottom: 4px; right: 10px; width: 120px; height: 50px;">
-  Values in the centre of the plot indicate higher resilience
-</div>
-</div>
-  </div>
-  <div class="card grid-colspan-3">
-<h3 style="font-weight: bold;">Compare Data</h3>
-<br>
-<h1 style="font-weight: bold;"><observablehq-loading></observablehq-loading><!--:81b34441:-->: <observablehq-loading></observablehq-loading><!--:7396d197:--></h1>
-<div class="observablehq observablehq--block"><!--:4fe3cb29:--></div>
-<div class="observablehq observablehq--block"><!--:4ad63e41:--></div>
-<div class="observablehq observablehq--block"><!--:a2cd2063:--></div>
-<div class="observablehq observablehq--block"><!--:7e5d0b01:--></div>
-<div class="observablehq observablehq--block"><!--:09f4354b:--></div>
-<div class="observablehq observablehq--block"><!--:c8e34d8b:--></div>
-<p><observablehq-loading></observablehq-loading><!--:eef93e1d:--></p>
-<div class="observablehq observablehq--block"><observablehq-loading></observablehq-loading><!--:89d6f39e:--></div>
-  </div>
-</div>
-</main>
-<footer id="observablehq-footer">
-<div>Built with <a href="https://observablehq.com/" target="_blank" rel="noopener noreferrer">Observable</a> on <a title="2024-09-28T18:18:37">Sep 28, 2024</a>.</div>
-</footer>
-</div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
