@@ -5,7 +5,7 @@ export var criButton = function criButton(linkText, link, params='') {
       params = '?la=' + params
     }
     return html`
-    <a href='${link}${params}' class="button_link top-right-button">
+    <a href='${link}${params}' class="button_link">
         ${linkText}
     </a>
     `

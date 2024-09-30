@@ -16,7 +16,7 @@
 <link rel="modulepreload" href="./_observablehq/runtime.a4b34474.js">
 <link rel="modulepreload" href="./_observablehq/stdlib.43ec6990.js">
 <link rel="modulepreload" href="./_import/components/url_params.fb45fdf3.js">
-<link rel="modulepreload" href="./_import/components/cri_button.7e277076.js">
+<link rel="modulepreload" href="./_import/components/cri_button.e59500da.js">
 <link rel="modulepreload" href="./_import/components/radarplot.ca3acdfb.js">
 <link rel="modulepreload" href="./_import/components/heatDot.930742c3.js">
 <link rel="modulepreload" href="./_import/components/map.27c563bf.js">
@@ -62,7 +62,7 @@
 <link rel="modulepreload" href="./_npm/internmap@2.0.3/5eed35fd.js">
 <link rel="modulepreload" href="./_npm/delaunator@5.0.1/e67acb27.js">
 <link rel="modulepreload" href="./_npm/robust-predicates@3.0.2/8ac9039b.js">
-<link rel="icon" href="./_file/img/observable.1af93621.png" type="image/png" sizes="32x32">
+<link rel="icon" href="./images/favicon111.ico" type="image/png" sizes="32x32">
 <script type="module">
 
 import {define} from "./_observablehq/client.085f727e.js";
@@ -71,7 +71,7 @@ import {registerFile} from "./_observablehq/stdlib.43ec6990.js";
 registerFile("./data/geogranks_powerBI_v2.csv", {"name":"./data/geogranks_powerBI_v2.csv","mimeType":"text/csv","path":"./_file/data/geogranks_powerBI_v2.dc882123.csv","lastModified":1726605635004,"size":419488});
 
 define({id: "4145b83b", outputs: ["urlParams","changeParams","criButton","radarPlot","heatDot","map","cri_lad_data"], body: async () => {
-const [{urlParams, changeParams}, {criButton}, {radarPlot}, {heatDot}, {map}, {cri_lad_data}] = await Promise.all([import("./_import/components/url_params.fb45fdf3.js"), import("./_import/components/cri_button.7e277076.js"), import("./_import/components/radarplot.ca3acdfb.js"), import("./_import/components/heatDot.930742c3.js"), import("./_import/components/map.27c563bf.js"), import("./_import/data/cri_lad_data.0bffec86.js")]);
+const [{urlParams, changeParams}, {criButton}, {radarPlot}, {heatDot}, {map}, {cri_lad_data}] = await Promise.all([import("./_import/components/url_params.fb45fdf3.js"), import("./_import/components/cri_button.e59500da.js"), import("./_import/components/radarplot.ca3acdfb.js"), import("./_import/components/heatDot.930742c3.js"), import("./_import/components/map.27c563bf.js"), import("./_import/data/cri_lad_data.0bffec86.js")]);
 
 return {urlParams,changeParams,criButton,radarPlot,heatDot,map,cri_lad_data};
 }});
@@ -176,9 +176,9 @@ name
 ))
 }});
 
-define({id: "80075acb", mode: "inline", inputs: ["criButton","la_data","display"], body: async (criButton,la_data,display) => {
+define({id: "701e4064", mode: "inline", inputs: ["criButton","la_data","display"], body: async (criButton,la_data,display) => {
 display(await(
-criButton('LA Indicator Scores', './indicators.html', la_data.lac)
+criButton('Indicator Scorecard', './indicators.html', la_data.lac)
 ))
 }});
 
@@ -343,8 +343,8 @@ geogTypeDesc
 ))
 }});
 
-define({id: "4fe3cb29", inputs: ["view","Inputs","same_combined_authority"], outputs: ["geographyType"], body: (view,Inputs,same_combined_authority) => {
-const geographyType = view(Inputs.select(['Region', 'Combined Authority', 'Local Resilience Forum', 'Fire and Rescue Service', 'Police'],
+define({id: "45e8d045", inputs: ["view","Inputs","same_combined_authority"], outputs: ["geographyType"], body: (view,Inputs,same_combined_authority) => {
+const geographyType = view(Inputs.select(['Region', 'Combined Authority', 'Local Resilience Forum', 'Fire and Rescue Service', 'Police Force Area'],
   {value: 'Region', label: "Geography type", disabled: same_combined_authority.length === 0 ? ['Combined Authority'] : []}))
 return {geographyType};
 }});
@@ -374,7 +374,7 @@ if (la_data.pfa23nm != null) {
 return {regional_peers,same_combined_authority,same_lrf,same_fire,same_police};
 }});
 
-define({id: "a2cd2063", inputs: ["geographyType","regional_peers","la_data","same_combined_authority","same_lrf","same_fire","same_police"], outputs: ["geogTypeDesc","peer_dataset"], body: (geographyType,regional_peers,la_data,same_combined_authority,same_lrf,same_fire,same_police) => {
+define({id: "21c111fe", inputs: ["geographyType","regional_peers","la_data","same_combined_authority","same_lrf","same_fire","same_police"], outputs: ["geogTypeDesc","peer_dataset"], body: (geographyType,regional_peers,la_data,same_combined_authority,same_lrf,same_fire,same_police) => {
 var geogTypeDesc
 var peer_dataset = []
 if (geographyType === 'Region') {
@@ -389,7 +389,7 @@ if (geographyType === 'Region') {
 } else if (geographyType === 'Fire and Rescue Service') {
   peer_dataset = same_fire
   geogTypeDesc = la_data.fra23nm
-} else if (geographyType === 'Police') {
+} else if (geographyType === 'Police Force Area') {
   peer_dataset = same_police
   geogTypeDesc = la_data.pfa23nm
 }
@@ -511,8 +511,8 @@ display(await(
 
   .top-right-button {
       position: absolute;
-      top: 53px; /* Adjust the value as needed for padding from the top */
-      right: 20px; /* Adjust the value as needed for padding from the right */
+      top: 18px; /* Adjust the value as needed for padding from the top */
+      right: 18px; /* Adjust the value as needed for padding from the right */
 }
 
   .citation-block {
@@ -546,7 +546,7 @@ display(await(
 <h3 style="font-weight: bold;">Community Resilience Index</h3>
 <br>
 <h1 style="font-weight: bold;"><observablehq-loading></observablehq-loading><!--:82a3537f-1:--></h1>
-<p><observablehq-loading></observablehq-loading><!--:80075acb:--></p>
+<p><observablehq-loading></observablehq-loading><!--:701e4064:--></p>
   <br>
   <table>
     <tbody><tr>
@@ -626,9 +626,9 @@ display(await(
 <h3 style="font-weight: bold;">Compare Data</h3>
 <br>
 <h1 style="font-weight: bold;"><observablehq-loading></observablehq-loading><!--:81b34441:-->: <observablehq-loading></observablehq-loading><!--:7396d197:--></h1>
-<div class="observablehq observablehq--block"><!--:4fe3cb29:--></div>
+<div class="observablehq observablehq--block"><!--:45e8d045:--></div>
 <div class="observablehq observablehq--block"><!--:4ad63e41:--></div>
-<div class="observablehq observablehq--block"><!--:a2cd2063:--></div>
+<div class="observablehq observablehq--block"><!--:21c111fe:--></div>
 <div class="observablehq observablehq--block"><!--:7e5d0b01:--></div>
 <div class="observablehq observablehq--block"><!--:09f4354b:--></div>
 <div class="observablehq observablehq--block"><!--:2a4e1b57:--></div>
